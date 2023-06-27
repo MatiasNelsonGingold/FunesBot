@@ -1,3 +1,9 @@
+#Raw data
+raw_data/
+
+#ignore matias api
+params/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
