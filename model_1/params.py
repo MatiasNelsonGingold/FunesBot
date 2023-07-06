@@ -1,12 +1,1 @@
-import os
-import numpy as np
-
-##################  VARIABLES  ##################
-
-
-
-
-
-##################  CONSTANTS  #####################
-ian_api_key=os.environ.get("api_ian")
-api_ian='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'
+ian_api='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'

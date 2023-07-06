@@ -1,8 +1,8 @@
 #Raw data
 raw_data/
 
-#ignore matias api
-params/
+#ignore ian api
+model_1/params/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
