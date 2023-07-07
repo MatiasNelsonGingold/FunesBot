@@ -11,14 +11,11 @@ from params import *
 
 
 
-def initialize_model():
-
-
-    document_store = InMemoryDocumentStore(use_bm25=True)
+def initialize_model(document_store):
 
     retriever = BM25Retriever(document_store=document_store)
 
-    reader = FARMReader(model_name_or_path="deepset/roberta-base-squad2", use_gpu=True)
+    reader = FARMReader(model_name_or_path="deepset/roberta-base-squad2", use_gpu=False)
 
     pipe = ExtractiveQAPipeline(reader, retriever)
 
@@ -31,7 +28,6 @@ def initialize_model():
     template_string = """Answer the question {query} \
     With the context found in the text within the list {list_of_contextual_ans_retrieval}
     """
-
 
     prompt_template = ChatPromptTemplate.from_template(template_string)
 

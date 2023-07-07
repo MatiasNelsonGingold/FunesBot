@@ -2,7 +2,7 @@
 raw_data/
 
 #ignore ian api
-model_1/params/
+model_1/params.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
