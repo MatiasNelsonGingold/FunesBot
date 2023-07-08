@@ -123,3 +123,7 @@ zipp==3.15.0
 farm-haystack
 torchaudio
 sentence-transformers
+
+#api
+fastapi
+uvicorn
