@@ -9,8 +9,7 @@ def primer_input_func():
     document_store = InMemoryDocumentStore(use_bm25=True)
 
     #file path local
-    file_path_local = r'c:\Users\Matías NG\Downloads\FunesBot-Ian(1)\FunesBot-Ian\model_1\WAR_and_PEACE_TEXT_FORMAT.txt'
-
+    file_path_local = 'WAR_and_PEACE_TEXT_FORMAT.txt'
     #Función primer input
 
     indexing_pipeline = TextIndexingPipeline(document_store)

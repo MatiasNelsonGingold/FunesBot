@@ -1,5 +1,5 @@
 import os
 
-ian_api='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'
+ian_api='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'
 
 print(ian_api)
