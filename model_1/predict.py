@@ -1,12 +1,16 @@
 from model import *
 from primer_input import *
 from params import *
+<<<<<<< HEAD
 from sentence_transformers import SentenceTransformer, util
+=======
+>>>>>>> main
 
 import openai
 
 import os
 import sys
+<<<<<<< HEAD
 import pprint
 
 
@@ -44,13 +48,42 @@ def predict(query,pipe,chat,prompt_template):
             list_of_contextual_ans_retrieval.append(score)  # add document score
 
     # Establish the format to call the OpenAI chat
+=======
+
+
+
+def predict(query,pipe,chat,prompt_template):
+
+    prediction = pipe.run(
+        query=query, params={"Retriever": {"top_k": 5}, "Reader": {"top_k": 5}}
+    )
+
+    # crear lista del contexto retornado por el retrieval utilizado
+    list_of_contextual_ans_retrieval=[]
+
+    for i in range (5):
+        list_of_contextual_ans_retrieval.append(prediction['documents'][i].content)
+
+    print(list_of_contextual_ans_retrieval)
+
+    # #establecer el formato de llamar el openai chat
+>>>>>>> main
     preparation_answer_user = prompt_template.format_messages(
                         query=query,
                         list_of_contextual_ans_retrieval=list_of_contextual_ans_retrieval)
 
+<<<<<<< HEAD
     # Call the LLM to answer the question with the context cited
     answer_user_final = chat(preparation_answer_user)
 
     print(list_of_contextual_ans_retrieval)
     return answer_user_final
 
+=======
+
+    # # Call the LLM to answer the question with the context cited
+    answer_user_final = chat(preparation_answer_user)
+
+
+    return answer_user_final
+>>>>>>> main

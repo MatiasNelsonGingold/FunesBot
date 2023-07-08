@@ -10,9 +10,10 @@ def primer_input_func():
 
     #file path local
     file_path_local = 'WAR_and_PEACE_TEXT_FORMAT.txt'
+
     #Función primer input
 
     indexing_pipeline = TextIndexingPipeline(document_store)
-    indexing_pipeline.run(file_path=file_path_local)
+    document_store_f=indexing_pipeline.run(file_path=file_path_local)
 
-    return document_store
+    return document_store_f
