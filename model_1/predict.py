@@ -1,6 +1,7 @@
 from model import *
 from primer_input import *
 from params import *
+from sentence_transformers import SentenceTransformer, util
 
 import openai
 

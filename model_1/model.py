@@ -15,7 +15,11 @@ def initialize_model(document_store):
 
     retriever = BM25Retriever(document_store=document_store)
 
+<<<<<<< HEAD
+    reader = FARMReader(model_name_or_path="deepset/roberta-base-squad2", use_gpu=True)
+=======
     reader = FARMReader(model_name_or_path="deepset/roberta-base-squad2", use_gpu=False)
+>>>>>>> main
 
     pipe = ExtractiveQAPipeline(reader, retriever)
 
@@ -25,8 +29,17 @@ def initialize_model(document_store):
 
 
     #PROMPT TEMPLATE
+<<<<<<< HEAD
+    template_string = """
+    You are a helpful assistant that answers questions about 'War and Peace' by Tolstoy.
+
+    User: {query}
+
+    Assistant: Use the following context information to construct your answer, try to make a complete and reasonable answer, try and quote which chapters you are using and never say you are an assistant, do not use any prior knowledge to construct the answer outside of the chapters being used: {list_of_contextual_ans_retrieval}
+=======
     template_string = """Answer the question {query} \
     With the context found in the text within the list {list_of_contextual_ans_retrieval}
+>>>>>>> main
     """
 
     prompt_template = ChatPromptTemplate.from_template(template_string)
