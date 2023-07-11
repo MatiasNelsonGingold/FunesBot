@@ -130,9 +130,15 @@ wrapt==1.15.0
 yarl==1.9.2
 <<<<<<< HEAD
 zipp==3.15.0
+
+
 farm-haystack
 torchaudio
 sentence-transformers
+
+langchain
+openai
+
 
 #api
 fastapi
