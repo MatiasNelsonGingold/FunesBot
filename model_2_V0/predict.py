@@ -8,28 +8,12 @@ from langchain.prompts import ChatPromptTemplate
 from params import *
 
 
-
-from haystack.pipelines.standard_pipelines import TextIndexingPipeline
-from haystack.document_stores import InMemoryDocumentStore
-
-
 import openai
 import os
 import sys
 
 
-def predict_final(query,pipe):
-    # To control the randomness and creativity of the generated
-    # text by an LLM, use temperature = 0.0
-    chat = ChatOpenAI(temperature=0.5,openai_api_key=ian_api)
-
-
-    #PROMPT TEMPLATE
-    template_string = """Answer the question {query} \
-    With the context found in the text within the list {list_of_contextual_ans_retrieval}
-    """
-
-    prompt_template = ChatPromptTemplate.from_template(template_string)
+def predict_final(query,pipe,chat,prompt_template):
 
     prediction = pipe.run(
         query=query, params={"Retriever": {"top_k": 5}, "Reader": {"top_k": 5}}
@@ -41,7 +25,6 @@ def predict_final(query,pipe):
     for i in range (5):
         list_of_contextual_ans_retrieval.append(prediction['documents'][i].content)
 
-    print(list_of_contextual_ans_retrieval)
 
     # #establecer el formato de llamar el openai chat
     preparation_answer_user = prompt_template.format_messages(

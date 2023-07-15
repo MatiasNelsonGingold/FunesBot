@@ -122,9 +122,11 @@ yarl==1.9.2
 zipp==3.15.0
 
 
-farm-haystack
+farm-haystack==1.9.1
 torchaudio
 sentence-transformers
+pinecone-client datasets
+
 
 langchain
 openai

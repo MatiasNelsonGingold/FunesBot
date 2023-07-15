@@ -28,6 +28,7 @@ pipe = ExtractiveQAPipeline(reader, retriever)
 ##
 @app.get("/predict")
 
+
 def predict_ans(user_query: str):
 
     """
