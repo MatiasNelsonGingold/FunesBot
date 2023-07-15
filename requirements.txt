@@ -133,18 +133,12 @@ zipp==3.15.0
 
 
 farm-haystack==1.9.1
-torchaudio
 sentence-transformers
-pinecone-client datasets
-
+pinecone-client
 
 langchain
 openai
 
-
 #api
 fastapi
 uvicorn
->>>>>>> main
-=======
->>>>>>> 971b4106a9e234ac44d387f5fe1cc45af61a6516
