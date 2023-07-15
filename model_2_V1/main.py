@@ -13,6 +13,7 @@ document_store=primer_input_func()
 
 #segundo paso es crear el pipe, crear el enlace con openai a través de la librería de langchain
 #Por último, crear el template del prompt que se utilizará
+
 pipe,chat,prompt_template =initialize_model(document_store)
 
 
