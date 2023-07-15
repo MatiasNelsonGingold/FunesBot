@@ -3,10 +3,14 @@ import pandas as pd
 
 from haystack.document_stores import InMemoryDocumentStore
 from haystack.nodes import BM25Retriever
+from haystack.nodes.retriever.dense import EmbeddingRetriever
 from haystack.nodes import FARMReader
 from haystack.pipelines import ExtractiveQAPipeline
+
+
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
+
 from params import *
 
 
