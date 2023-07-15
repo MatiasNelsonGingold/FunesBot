@@ -7,7 +7,7 @@ from predict import *
 
 
 #llamar la pregunta del usuario
-#Primer paso es crear el vínculo con la base de datos con el libro ya spliteado
+#Primer paso es crear el vínculo con la base de datos con el libro ya spliteado en pinecone
 document_store=primer_input_func()
 
 
