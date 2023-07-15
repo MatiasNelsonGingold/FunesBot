@@ -7,7 +7,7 @@ openai
 uvicorn
 fastapi
 streamlit
-farm-haystack[inferance]
+farm-haystack[inference]
 =======
 =======
 absl-py==1.4.0
