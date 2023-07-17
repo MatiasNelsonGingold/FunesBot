@@ -40,3 +40,19 @@ print(f"n_docs_input: 1\nn_docs_output: {len(docs_default)}")
 #con lo que sigue se sube a la base de datos en pinecone (se actualiza la abse de datos)
 from haystack import Document
 document_store.write_documents(docs_default)
+
+
+#realizar el embedding
+
+from haystack.nodes.retriever.dense import EmbeddingRetriever
+
+retriever = EmbeddingRetriever(
+    document_store=document_store,
+    embedding_model="multi-qa-MiniLM-L6-cos-v1",
+    model_format="sentence_transformers"
+)
+
+document_store.update_embeddings(
+    retriever,
+    batch_size=16
+)
