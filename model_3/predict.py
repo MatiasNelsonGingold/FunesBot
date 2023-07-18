@@ -1,11 +1,11 @@
 from model import *
 from primer_input import *
 from params import *
+from pages import *
 
 
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
-from params import *
 
 
 import openai
@@ -25,7 +25,6 @@ def predict_final(query,pipe,chat,prompt_template):
     for i in range (5):
         list_of_contextual_ans_retrieval.append(prediction['documents'][i].content)
 
-
     # #establecer el formato de llamar el openai chat
     preparation_answer_user = prompt_template.format_messages(
                         query=query,
@@ -35,5 +34,6 @@ def predict_final(query,pipe,chat,prompt_template):
     # # Call the LLM to answer the question with the context cited
     answer_user_final = chat(preparation_answer_user)
 
+    answer_pages_final = funcion_todo(list_of_contextual_ans_retrieval,book)
 
-    return dict(Respuesta = answer_user_final)
+    return dict(Respuesta = answer_user_final, Contexto = answer_pages_final)

@@ -1,6 +1,6 @@
 
 from haystack.document_stores import PineconeDocumentStore
-
+from langchain.document_loaders import PyPDFLoader
 from params import *
 
 
@@ -16,3 +16,10 @@ def primer_input_func():
     )
 
     return document_store
+
+path_pdf = './War and Peace (Leo Tolstoy).pdf'
+
+#Lectura y extracción del contenido del PDF
+loader = PyPDFLoader(path_pdf)
+pages = loader.load_and_split()
+book = [page.page_content for page in pages]
