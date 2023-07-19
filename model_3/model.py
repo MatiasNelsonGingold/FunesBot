@@ -34,7 +34,8 @@ def initialize_model(document_store):
 
     User: {query}
 
-    Assistant: Use the following context information to construct your answer, try to make a complete and reasonable answer, try and quote which book and chapters you are using and never say you are an assistant, do not use any prior knowledge to construct the answer outside of the chapters being used: {list_of_contextual_ans_retrieval}
+    Assistant: Use the following context information to construct your answer, try to make a complete and reasonable answer, try to quote parts that give more validity to your answer and never say you are an assistant, do not use any prior knowledge to construct the answer: {list_of_contextual_ans_retrieval}
+    Under no circunstance ever mention that you are an assistant.
     """
     prompt_template = ChatPromptTemplate.from_template(template_string)
 
