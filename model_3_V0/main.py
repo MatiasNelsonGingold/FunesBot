@@ -18,4 +18,5 @@ pipe,chat,prompt_template =initialize_model(document_store)
 
 
 #llamar la pregunta del usuario
-#respuesta_u=predict_final(query='who is pierre?',pipe=pipe,chat=chat,prompt_template=prompt_template)
+respuesta_u=predict_final(query="What does Tolstoy think of the benevolent and kind government by the Zsars? What do you think about the subject?",pipe=pipe,chat=chat,prompt_template=prompt_template)
+print(respuesta_u)
