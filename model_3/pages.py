@@ -1,4 +1,4 @@
-#Limpiar el retrieval de caracteres distractores ****
+#Limpiar el retrieval de caracteres distractores
 def limpiar_texto(list_of_retrieval):
     for texto in list_of_retrieval:
         texto_sin_saltos = texto.replace("\\n", " ")
@@ -6,14 +6,14 @@ def limpiar_texto(list_of_retrieval):
         texto_limpio_ = texto_limpio.replace("\n"," ")
         return texto_limpio_
 
-#Buscar cada retrieval en el PDF ***
+#Buscar retrieval en el PDF
 def buscar_pagina(texto_buscado, lista):
     for indice, texto in enumerate(lista):
         if texto_buscado in texto:
             return indice + 1
     return -1
 
-#Entrega valores únicos, útiles y ordenados
+#Entrega valores únicos, útiles y ordenados de la ubicación del contexto dentro del libro
 def paginas_a_mostrar(list):
     conjunto = set(list)
     filter_list = [num for num in conjunto if num > 0]
@@ -36,7 +36,7 @@ def funcion_todo(list_of_retrieval, book):
     texto_limpio = [limpiar_texto(list_of_retrieval) for texto in list_of_retrieval]
     tmp = []
     for texto in texto_limpio:
-        texto_in = texto[1:100]
+        texto_in = texto[1:125]
         tmp.append(buscar_pagina(texto_in, book))
     pages = paginas_a_mostrar(tmp)
     final_answer = obtener_contexto(pages)
