@@ -27,8 +27,8 @@ def predict_final(query,pipe,chat,prompt_template):
             list_of_contextual_ans_retrieval.append(content)  # add document content
             list_of_contextual_ans_retrieval.append(score)  # add document score
 
-    for i in range (5):
-        list_of_contextual_ans_retrieval.append(prediction['documents'][i].content)
+   # for i in range (5):
+   #     list_of_contextual_ans_retrieval.append(prediction['documents'][i].content)
 
     print('############')
     print(list_of_contextual_ans_retrieval)
