@@ -4,6 +4,9 @@ raw_data/
 #ignore ian api
 model_1/params.py
 
+#ignorar carpetas
+model_1/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
