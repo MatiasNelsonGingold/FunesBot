@@ -2,6 +2,7 @@
 from haystack.document_stores import PineconeDocumentStore
 from langchain.document_loaders import PyPDFLoader
 from params import *
+from primer_input import *
 import pandas as pd
 
 

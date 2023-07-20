@@ -1,7 +1,8 @@
 from model import *
 from primer_input import *
 from params import *
-from pages import *
+#from pages import *
+from chapter_book_page import *
 from sentence_transformers import SentenceTransformer, util
 model = SentenceTransformer('sentence-transformers/multi-qa-mpnet-base-dot-v1')
 
@@ -30,8 +31,6 @@ def predict_final(query,pipe,chat,prompt_template):
     for i in range (5):
         list_of_contextual_ans_retrieval.append(prediction['documents'][i].content)
 
-    print(list_of_contextual_ans_retrieval)
-
 
     # #establecer el formato de llamar el openai chat
     preparation_answer_user = prompt_template.format_messages(
@@ -42,8 +41,12 @@ def predict_final(query,pipe,chat,prompt_template):
     # # Call the LLM to answer the question with the context cited
     answer_user_final = chat(preparation_answer_user)
 
-    answer_pages_final = funcion_todo(list_of_contextual_ans_retrieval,book)
+    answer_pages_final = funcion_todo(list_of_contextual_ans_retrieval,book,meta_datos)
 
     return dict(Respuesta = answer_user_final, Contexto = answer_pages_final)
+
+
+
+
 
 #valor_pregunta - valor_extracto -> valor indicativo de que tanta referencia a lap regunta hace el extracto
