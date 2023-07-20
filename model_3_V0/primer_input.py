@@ -2,6 +2,8 @@
 from haystack.document_stores import PineconeDocumentStore
 from langchain.document_loaders import PyPDFLoader
 from params import *
+from primer_input import *
+import pandas as pd
 
 
 def primer_input_func():
@@ -23,3 +25,5 @@ path_pdf = './War and Peace (Leo Tolstoy).pdf'
 loader = PyPDFLoader(path_pdf)
 pages = loader.load_and_split()
 book = [page.page_content for page in pages]
+
+meta_datos = pd.read_csv('war_and_peace.csv')
