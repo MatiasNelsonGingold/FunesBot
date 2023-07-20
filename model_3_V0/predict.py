@@ -1,8 +1,8 @@
 from model import *
 from primer_input import *
 from params import *
-#from pages import *
-from chapter_book_page import *
+from pages import *
+#from chapter_book_page import *
 from sentence_transformers import SentenceTransformer, util
 model = SentenceTransformer('sentence-transformers/multi-qa-mpnet-base-dot-v1')
 
@@ -28,14 +28,8 @@ def predict_final(query,pipe,chat,prompt_template):
             list_of_contextual_ans_retrieval.append(content)  # add document content
             list_of_contextual_ans_retrieval.append(score)  # add document score
 
-   # for i in range (5):
-   #     list_of_contextual_ans_retrieval.append(prediction['documents'][i].content)
-
-    print('############')
-    print(list_of_contextual_ans_retrieval)
-    print('-----------------')
-    print(limpiar_texto(list_of_contextual_ans_retrieval))
-    print('############')
+    for i in range (5):
+        list_of_contextual_ans_retrieval.append(prediction['documents'][i].content)
 
 
     # #establecer el formato de llamar el openai chat

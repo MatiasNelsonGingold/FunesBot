@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 
-from fast import *
 from model import *
 from primer_input import *
 from predict import *
@@ -19,5 +18,5 @@ pipe,chat,prompt_template =initialize_model(document_store)
 
 
 #llamar la pregunta del usuario
-#respuesta_u=predict_final(query='this is a test prompt',pipe=pipe,chat=chat,prompt_template=prompt_template)
-#print(respuesta_u)
+respuesta_u=predict_final(query="What does Tolstoy think of the benevolent and kind government by the Zsars? What do you think about the subject?",pipe=pipe,chat=chat,prompt_template=prompt_template)
+print(respuesta_u)
