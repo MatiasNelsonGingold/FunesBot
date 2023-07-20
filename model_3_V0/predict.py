@@ -30,6 +30,9 @@ def predict_final(query,pipe,chat,prompt_template):
     for i in range (5):
         list_of_contextual_ans_retrieval.append(prediction['documents'][i].content)
 
+    print(list_of_contextual_ans_retrieval)
+
+
     # #establecer el formato de llamar el openai chat
     preparation_answer_user = prompt_template.format_messages(
                         query=query,
