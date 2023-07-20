@@ -19,5 +19,5 @@ pipe,chat,prompt_template =initialize_model(document_store)
 
 
 #llamar la pregunta del usuario
-#respuesta_u=predict_final(query='this is a test prompt',pipe=pipe,chat=chat,prompt_template=prompt_template)
-#print(respuesta_u)
+respuesta_u=predict_final(query='who is pierre father',pipe=pipe,chat=chat,prompt_template=prompt_template)
+print(respuesta_u)

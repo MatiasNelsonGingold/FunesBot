@@ -3,6 +3,7 @@ sentence-transformers
 pinecone-client
 langchain
 openai
+pypdf
 
 #api
 fastapi

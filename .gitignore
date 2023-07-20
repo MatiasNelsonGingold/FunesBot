@@ -6,6 +6,7 @@ model_1/params.py
 
 #ignorar carpetas
 model_1/
+model_3_V0/prueba.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

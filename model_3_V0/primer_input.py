@@ -17,7 +17,7 @@ def primer_input_func():
 
     return document_store
 
-path_pdf = './War and Peace (Leo Tolstoy).pdf'
+path_pdf = "model_3_V0/war_and_peace_leo_tolstoy.pdf"
 
 #Lectura y extracción del contenido del PDF
 loader = PyPDFLoader(path_pdf)
