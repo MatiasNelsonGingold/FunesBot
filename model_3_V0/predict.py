@@ -47,7 +47,7 @@ def predict_final(query,pipe,chat,prompt_template):
     answer_pages_final = funcion_todo(list_of_contextual_ans_retrieval,book,meta_datos)
 
     #final_answer
-    answer_final = answer_user_final.content + "\n\n" + answer_pages_final + "."
+    answer_final = answer_user_final.content + "\n\n" + answer_pages_final
 
     return answer_final
 
