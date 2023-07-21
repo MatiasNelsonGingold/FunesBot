@@ -57,12 +57,12 @@ def obtener_contexto(total_pages):
         context_pages = [obtener_capitulo_libro(chapter, book, page) for page, chapter, book in total_pages[:-1]]
         contexto_paginas = ", ".join(context_pages)
         last_page = context_pages[-1]
-        texto_final = f"You can find more context for these questions on {contexto_paginas} and {last_page}"
+        texto_final = f"You can find more context for these questions on {contexto_paginas} and {last_page}."
     elif len(total_pages) == 1:
         page, chapter, book = total_pages[0]
-        texto_final = f"You can find more context for this question on {obtener_capitulo_libro(chapter, book, page)}"
+        texto_final = f"You can find more context for this question on {obtener_capitulo_libro(chapter, book, page)}."
     else:
-        texto_final = "There is no specific context for this question"
+        texto_final = "There is no specific context for this question."
     return texto_final
 
 #OUTPUT FINAL

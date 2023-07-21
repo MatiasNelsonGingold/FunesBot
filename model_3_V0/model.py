@@ -26,7 +26,7 @@ def initialize_model(document_store):
 
     # To control the randomness and creativity of the generated
     # text by an LLM, use temperature = 0.0
-    chat = ChatOpenAI(model='gpt-3.5-turbo-16k',temperature=0.1,openai_api_key=ian_openai_api)
+    chat = ChatOpenAI(model='gpt-3.5-turbo-16k',temperature=0.5,openai_api_key=ian_openai_api)
 
 
     #PROMPT TEMPLATE
@@ -37,5 +37,12 @@ def initialize_model(document_store):
 
     User question: {query}
     """
+
+    #Assistant: Use the following context information to construct your answer,
+    #try to make a complete and reasonable answer, try and quote which book and
+    #chapters you are using and never say you are an assistant, do not use any
+    #prior knowledge to construct the answer outside
+    #of the chapters being used: {list_of_contextual_ans_retrieval}
+    #"""
     prompt_template = ChatPromptTemplate.from_template(template_string)
     return pipe,chat,prompt_template
