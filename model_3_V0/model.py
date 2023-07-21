@@ -19,7 +19,8 @@ def initialize_model(document_store):
     model_format="sentence_transformers"
     )
 
-    reader = FARMReader(model_name_or_path="sentence-transformers/multi-qa-mpnet-base-dot-v1", use_gpu=True)
+    reader = FARMReader(model_name_or_path="sentence-transformers/multi-qa-mpnet-base-dot-v1",
+                        use_gpu=True)
 
     pipe = ExtractiveQAPipeline(reader, retriever)
 
@@ -30,16 +31,19 @@ def initialize_model(document_store):
 
     #PROMPT TEMPLATE
     template_string = """
-    You are a helpful assistant that answers questions about 'War and Peace' by Tolstoy.
+    Use the following book extracts to construct your answer, please refer to this context as 'the text' or 'the book' or 'the novel' when referencing it: {list_of_contextual_ans_retrieval}
 
-    User: {query}
+    You are a helpful assistant that answers questions about 'War and Peace' by Tolstoy. Make a very complete and very thorough answer including explicitely quoting [using quotation marks] parts that give more robustness to your answer.
 
-    Assistant: Use the following context information to construct your answer,
-    try to make a complete and reasonable answer, try and quote which book and
-    chapters you are using and never say you are an assistant, do not use any
-    prior knowledge to construct the answer outside
-    of the chapters being used: {list_of_contextual_ans_retrieval}
+    User question: {query}
     """
+
+    #Assistant: Use the following context information to construct your answer,
+    #try to make a complete and reasonable answer, try and quote which book and
+    #chapters you are using and never say you are an assistant, do not use any
+    #prior knowledge to construct the answer outside
+    #of the chapters being used: {list_of_contextual_ans_retrieval}
+    #"""
     prompt_template = ChatPromptTemplate.from_template(template_string)
 
     return pipe,chat,prompt_template
