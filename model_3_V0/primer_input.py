@@ -12,8 +12,8 @@ def primer_input_func():
     document_store = PineconeDocumentStore(
         api_key="ead8051e-8608-497a-beb2-a8d7d9092bd4",
         environment='asia-southeast1-gcp-free',
+        similarity="dot_product",
         index='haystack-extractive-qa',
-        similarity="cosine",
         embedding_dim=384
     )
 

@@ -35,7 +35,7 @@ def obtener_contexto(total_pages):
     return texto_final
 
 #OUTPUT FINAL
-def funcion_todo(list_of_retrieval, book):
+#def funcion_todo(list_of_retrieval, book):
     texto_limpio = limpiar_texto(list_of_retrieval)
     tmp = []
     for texto in texto_limpio:
