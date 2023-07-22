@@ -23,13 +23,12 @@ def measure_complexity(query):
     complexity = 1 * unique_word_count + 2 * named_entity_count + 1.5 * non_stopword_count + length_penalty
     return complexity
 
-def complexity_to_top_k(complexity):
-    # Use a logarithmic function to calculate top_k for the retriever
-    top_k_retriever = 30
-    OPTIMAL_WORD_COUNT = 10
-    top_k_reader = min(int(complexity / (OPTIMAL_WORD_COUNT / 10)), 10)
-    return top_k_retriever, top_k_reader
 
+def complexity_to_top_k(complexity):
+    # Use a linear function to calculate top_k for the retriever
+    top_k_retriever = (20*complexity)
+    top_k_reader = complexity
+    return top_k_retriever, top_k_reader
 
 def predict_final(query,pipe,chat,prompt_template):
     prediction = {}

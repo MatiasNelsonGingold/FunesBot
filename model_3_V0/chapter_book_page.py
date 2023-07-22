@@ -10,8 +10,8 @@ def limpiar_texto(list_of_retrieval):
 
 #Buscar cada retrieval en el PDF
 def buscar_pagina(texto_buscado, lista):
-    for indice, texto in enumerate(lista):
-        if texto_buscado in texto:
+    for indice, texto_limpio in enumerate(lista):
+        if texto_buscado in texto_limpio:
             return indice + 1
     return -1
 
@@ -39,13 +39,15 @@ def book_chapter_page(page,texto_limpio,meta_datos,tmp,book):
                 chapter = metadatos['Chapter'].iloc[0]
                 book = metadatos['Book'].iloc[0]
                 return page, chapter, book
-        return None, None, page
+        return
 
 #Entrega valores únicos, útiles y ordenados
 def contexto_a_mostrar(metadatos):
     step1 = set(metadatos)
+    step1 = [x for x in step1 if x is not None]
     step2 = sorted(step1, key=lambda x: x[0])
     return step2
+
 
 #Extraer cada concepto
 def obtener_capitulo_libro(chapter, book, page):
@@ -67,14 +69,18 @@ def obtener_contexto(total_pages):
 
 #OUTPUT FINAL
 def funcion_todo(list_of_retrieval, book, meta_datos):
-    texto_limpio = limpiar_texto(list_of_retrieval)
+    texto_1 = list_of_retrieval
     tmp = []
-    for texto in texto_limpio:
-        texto_in = texto[1:20]
+    for texto in texto_1:
+        texto_in = texto[1:15]
         tmp.append(buscar_pagina(texto_in, book))
+    #texto_limpio = limpiar_texto(list_of_retrieval)
     metadatos_paginas = []
     for page in tmp:
-        metadatos_paginas.append(book_chapter_page(page,texto_limpio,meta_datos,tmp,book))
+        result = book_chapter_page(page, texto_1, meta_datos, tmp, book)
+        if result != (None, None, ):  # Only append the result if it's not (None, None, -1)
+            metadatos_paginas.append(result)
+        metadatos_paginas.append(book_chapter_page(page,texto_1,meta_datos,tmp,book))
     context1 = contexto_a_mostrar(metadatos_paginas)
-    final_answer = obtener_contexto(context1)
-    return final_answer
+    answer = obtener_contexto(context1)
+    return answer
