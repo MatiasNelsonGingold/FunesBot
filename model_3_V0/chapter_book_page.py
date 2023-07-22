@@ -39,13 +39,13 @@ def book_chapter_page(page,texto_limpio,meta_datos,tmp,book):
                 chapter = metadatos['Chapter'].iloc[0]
                 book = metadatos['Book'].iloc[0]
                 return page, chapter, book
-        return None, None, page
-
+        return page, None, None
 #Entrega valores únicos, útiles y ordenados
 def contexto_a_mostrar(metadatos):
-    step1 = set(metadatos)
-    step2 = sorted(step1, key=lambda x: x[0])
-    return step2
+    step1 = [metadato for metadato in metadatos if metadato[0] != -1]
+    step2 = set(step1)
+    step3 = sorted(step2, key=lambda x: x[0])
+    return step3
 
 #Extraer cada concepto
 def obtener_capitulo_libro(chapter, book, page):
