@@ -16,9 +16,9 @@ def measure_complexity(query):
     doc = nlp(query)
     stopwords = nltk.corpus.stopwords.words('english')
     non_stopword_count = len([word for word in nltk.word_tokenize(query) if word not in stopwords])/(2/5)
-    OPTIMAL_WORD_COUNT = 10  # Adjust this based on your observations
+    OPTIMAL_WORD_COUNT = 8  # Adjust this based on your observations
     word_count = len(query.split())
-    length_penalty = min(max(OPTIMAL_WORD_COUNT - word_count),1),0
+    length_penalty = max(0, min(1, int(OPTIMAL_WORD_COUNT - word_count)))
     named_entity_penalty = 0
     for entity in doc.ents:
         if entity.label_ == 'PERSON':
