@@ -43,10 +43,10 @@ def book_chapter_page(page,texto_limpio,meta_datos,tmp,book):
 
 #Entrega valores únicos, útiles y ordenados
 def contexto_a_mostrar(metadatos):
-    step1 = [metadato for metadato in metadatos if metadato[0] != -1]
-    step2 = set(step1)
-    step3 = sorted(step2, key=lambda x: x[0])
-    return step3
+    step1 = set(metadatos)
+    step1 = [x for x in step1 if x is not None]
+    step2 = sorted(step1, key=lambda x: x[0])
+    return step2
 
 
 #Extraer cada concepto
