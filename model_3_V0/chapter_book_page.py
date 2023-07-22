@@ -40,6 +40,7 @@ def book_chapter_page(page,texto_limpio,meta_datos,tmp,book):
                 book = metadatos['Book'].iloc[0]
                 return page, chapter, book
         return page, None, None
+        
 #Entrega valores únicos, útiles y ordenados
 def contexto_a_mostrar(metadatos):
     step1 = [metadato for metadato in metadatos if metadato[0] != -1]
